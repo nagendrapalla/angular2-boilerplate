@@ -1,0 +1,24 @@
+<table id="example" class="table table-bordered table-striped"  cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Office</th>
+    <th>Age</th>
+    <th>Start date</th>
+    <th>Salary</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let d of tableContent">
+    <td>{{ d.name }}</td>
+    <td>{{ d.position }}</td>
+    <td>{{ d.office }}</td>
+    <td><inline-editor type="text" [(ngModel)]="d.age" (onSave)="saveEditable($event, d)" name="age" size="8"></inline-editor></td>
+    <td>
+      <inline-editor type="text" [(ngModel)]="d.start_date" (onSave)="saveEditable($event, d)" name="start_date" class="floating-label datePF"></inline-editor>
+    </td>
+    <td>{{ d.salary }}</td>
+  </tr>
+  </tbody>
+</table>
